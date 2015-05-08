@@ -1,3 +1,5 @@
+(defmacro range(n) `(loop for i from 0 to ,n collect i))
+
 (defun splitat (c line)
   (labels ((rec (line acc)
 				(let ((pos (position-if (lambda(cc) (char= c cc)) line)))
