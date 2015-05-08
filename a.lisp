@@ -1,4 +1,8 @@
 (defmacro range(n) `(loop for i from 0 to ,n collect i))
+(defmacro fm (a) `(format t "~A~%" ,a))
+(defmacro toint(s) `(parse-integer ,s))
+(defmacro foldl (fn lst initval) `(reduce ,fn ,lst :initial-value ,initval))
+(defmacro foldl1 (fn lst) `(reduce ,fn ,lst))
 
 (defun splitat (c line)
   (labels ((rec (line acc)
