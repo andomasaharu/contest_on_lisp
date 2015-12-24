@@ -4,6 +4,13 @@
 (defmacro foldl (fn lst initval) `(reduce ,fn ,lst :initial-value ,initval))
 (defmacro foldl1 (fn lst) `(reduce ,fn ,lst))
 
+(defmacro dbgfmt(&body body)
+  `(format t ,(format nil "~{~A~}~~%" (mapcar (lambda(a) (format nil "~(~A:~~A ~)" a)) body)) ,@body))
+  (let ((a 1)
+  (b '(a b c))
+  (c 1000))
+  (dbgfmt a b c))
+
 (defun flatten1(lst)
   (nreverse (reduce (lambda (acc a)
 					  (reduce (lambda (acc a)
