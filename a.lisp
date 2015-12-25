@@ -10,6 +10,10 @@
   (b '(a b c))
   (c 1000))
   (dbgfmt a b c))
+  
+(defmacro compiles(&body body)
+  `(progn
+    ,@(mapcar (lambda(a) `(compile ',a)) body)))
 
 (defun flatten1(lst)
   (nreverse (reduce (lambda (acc a)
