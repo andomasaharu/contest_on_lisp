@@ -2,7 +2,7 @@
 
 ## summary
 higher function for standard input reader  
-and parse readed line from standard input  
+and parse read line from standard input  
 some useful macro 
 
 ## motivation
