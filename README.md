@@ -9,6 +9,6 @@ some useful macro
 my desire is increse user in common lisp  
 lisp is be popular programming language  
 
-i think, using common lisp in programming contest, that is best trial chance for common lisp primer (other language programmer)  
+i think, using common lisp in programming contest, that is best trial chance for common lisp primer (for other language programmer)  
 assist for common lisp primer in programming contest  
 fill useful programming parts for programming contest  
