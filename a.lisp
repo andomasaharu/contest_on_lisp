@@ -1,14 +1,22 @@
 (defmacro range(n) `(loop for i from 0 to ,n collect i))
+(format t "~A~%" (range 10))
 (defmacro fm (a) `(format t "~A~%" ,a))
+(fm (range 10))
 (defmacro toint(s) `(parse-integer ,s))
+(fm (toint "123"))
 (defmacro foldl (fn lst initval) `(reduce ,fn ,lst :initial-value ,initval))
+(fm (foldl #'+ '(1 2 3 4 5) 0))
 (defmacro foldl1 (fn lst) `(reduce ,fn ,lst))
+(fm (foldl1 #'+ '(1 2 3 4 5)))
 
 (defmacro aif(pred thenform elseform)
   `(let ((it ,pred))
      (if it
        ,thenform
        ,elseform)))
+(aif (cdr '(1 2 3))
+(fm (car it))
+(fm "null cdr~%"))
 
 (defmacro dbgfmt(&body body)
   `(format t ,(format nil "~{~A~}~~%" (mapcar (lambda(a) (format nil "~(~A:~~A ~)" a)) body)) ,@body))
@@ -20,6 +28,7 @@
 (defmacro compiles(&body body)
   `(progn
     ,@(mapcar (lambda(a) `(compile ',a)) body)))
+;(compiles 'myfunctionname1 'myfunctionname2)    
 
 (defun flatten1(lst)
   (nreverse (reduce (lambda (acc a)
