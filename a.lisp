@@ -11,6 +11,17 @@
 (defun list-to-vector(lst)
   (coerce lst 'vector))
 
+(defun my-parse-integer-rec(s)
+  (labels ((rec (s r)
+                (if (string= s "")
+                  (nreverse r)
+                  (multiple-value-bind (a b)
+                    (parse-integer s :junk-allowed t)
+                    (rec (subseq s b) (cons a r))))))
+    (rec s nil)))
+(compile 'my-parse-integer-rec)
+(format t "~A~%" (my-parse-integer-rec "123 456"))
+
 (defmacro aif(pred thenform elseform)
   `(let ((it ,pred))
      (if it
