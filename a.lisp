@@ -8,6 +8,8 @@
 (fm (foldl #'+ '(1 2 3 4 5) 0))
 (defmacro foldl1 (fn lst) `(reduce ,fn ,lst))
 (fm (foldl1 #'+ '(1 2 3 4 5)))
+(defun list-to-vector(lst)
+  (coerce lst 'vector))
 
 (defmacro aif(pred thenform elseform)
   `(let ((it ,pred))
