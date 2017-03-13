@@ -46,7 +46,24 @@
 (defmacro compiles(&body body)
   `(progn
     ,@(mapcar (lambda(a) `(compile ',a)) body)))
-;(compiles 'myfunctionname1 'myfunctionname2)    
+;(compiles 'myfunctionname1 'myfunctionname2)
+
+
+(defun bsearch(arr m)
+  (labels ((rec (s e d)
+                (let ((center (floor (/ (+ s e) 2))))
+                  (cond ((= (aref arr center) m) (progn (format t "d:~A~%" d) center))
+                        ((= s center) nil)
+                        ((< (aref arr center) m) (rec center e (1+ d)))
+                        (t (rec s center (1+ d)))))))
+    (rec 0 (length arr) 0)))
+(defun bsearch-test()
+  (let ((lst (loop for i from 0 to 99 collect (* i 2))))
+    (mapcar (lambda(i)
+              (format t "~A ~A~%" i (bsearch (list-to-vector lst) (/ i 1))))
+            lst)))
+;(bsearch-test)
+
 
 (defun flatten1(lst)
   (nreverse (reduce (lambda (acc a)
