@@ -1,13 +1,18 @@
 (defmacro range(n) `(loop for i from 0 to ,n collect i))
 (format t "~A~%" (range 10))
+
 (defmacro fm (a) `(format t "~A~%" ,a))
 (fm (range 10))
+
 (defmacro toint(s) `(parse-integer ,s))
 (fm (toint "123"))
+
 (defmacro foldl (fn lst initval) `(reduce ,fn ,lst :initial-value ,initval))
 (fm (foldl #'+ '(1 2 3 4 5) 0))
+
 (defmacro foldl1 (fn lst) `(reduce ,fn ,lst))
 (fm (foldl1 #'+ '(1 2 3 4 5)))
+
 (defun list-to-vector(lst)
   (coerce lst 'vector))
 
