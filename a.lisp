@@ -99,7 +99,7 @@
 				(let ((pos (position-if (lambda(cc) (char= c cc)) line)))
 				  (if pos
 					  (rec (subseq line (1+ pos)) (cons (subseq line 0 pos) acc))
-					(cons line acc)))))
+					(nreverse (cons line acc))))))
 	(rec line nil)))
 	;(splitat #\a "john mccarthy")
 (defun readline (callback)
