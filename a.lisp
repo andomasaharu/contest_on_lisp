@@ -1,3 +1,6 @@
+(let ((vec (make-array (length lst) :initial-contents lst))))
+
+
 (defmacro range(n) `(loop for i from 0 to ,n collect i))
 (format t "~A~%" (range 10))
 
