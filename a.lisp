@@ -1,3 +1,9 @@
+(defun degree-to-radian(deg)
+  (* pi (/ deg 180)))
+
+(defun radian-to-degree(rad)
+	(* 180 (/ rad pi)))
+
 (let ((vec (make-array (length lst) :initial-contents lst))))
 
 
